@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+
+import sys
+
+class Get_canshu(object):
+     __args = sys.argv[1:]
+     __index = __args.index('-c')
+     __canshu = {'config':__args[__index+1]}
+     __index = __args.index('-d')
+     __canshu = {'userdata': __args[__index+1]}
+     __index = __args.index('-d')
+     __canshu = {'outfile': __args[__index+1]}
+ 
+     def get_cs(self,value):
+         return self.__canshu[value]
+
+class Config(object):
+    def __init__(self,configfile):
+        with open(configfile,'r') as file:
+            for line in file:
+                line_strip = line.strip()
+                line_split = line.split('=')
+                self._config = {'line_split[0]':'line_split[1]'}
+    
+    def get_config(self,name):
+        return self._config[name]
+
+
+#class UserData(object):
+#    def __init__(self,userdatafile):
+#        with open(userdatafile,'r' with file:
+#            for line in file:
+#                line_split = line.split(',')
+#                self._uesrdata = {'line_split[0]':'line_split[1]'}
+    
+#    def caculator(self):
+#        for id,gongzi in self._userdata.items():
+
+
+if __name__ == '__main__':
+   s = Get_canshu()
+   print(s.get_cs(config))           
