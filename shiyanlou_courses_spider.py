@@ -8,14 +8,17 @@ class ShiyanlouCoursesSpider(scrapy.Spider):
 
     name = 'shiyanlou-courses'
 
-    def start_requests(self):
+#    def start_requests(self):
+#        url_tmpl = 'https://www.shiyanlou.com/courses/?category=all&course_type=all&fee=all&tag=all&page={}'
+
+ #       urls = (url_tmpl.format(i) for i in range(1,23))
+
+ #       for url in urls:
+ #           yield scrapy.Request(url=url,callback=self.parse)
+
+    def start_url(self):
         url_tmpl = 'https://www.shiyanlou.com/courses/?category=all&course_type=all&fee=all&tag=all&page={}'
-
-        urls = (url_tmpl.format(i) for i in range(1,23))
-
-        for url in urls:
-            yield scrapy.Request(url=url,callback=self.parse)
-
+        return (url_tmpl.format(i) for i in rang(1,23)) 
 
     def parse(self,response):
         
