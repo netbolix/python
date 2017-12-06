@@ -15,7 +15,7 @@ class ShiyanlouCoursesSpider(scrapy.Spider):
 
  #       for url in urls:
  #           yield scrapy.Request(url=url,callback=self.parse)
-
+    @property
     def start_url(self):
         url_tmpl = 'https://www.shiyanlou.com/courses/?category=all&course_type=all&fee=all&tag=all&page={}'
         return (url_tmpl.format(i) for i in rang(1,23)) 
